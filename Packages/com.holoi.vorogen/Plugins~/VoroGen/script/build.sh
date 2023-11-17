@@ -48,7 +48,7 @@ gcc $CFLAGS $INCLUDES $IOS_ARGS -c ${SOURCES}/wall.cc -o wall.o
 gcc $CFLAGS $INCLUDES $IOS_ARGS -c ${SOURCES}/pre_container.cc -o pre_container.o 
 gcc $CFLAGS $INCLUDES $IOS_ARGS -c ${SOURCES}/container_prd.cc -o container_prd.o 
 
-ar -crv libVoroGen.a VoroGen2.o $VORO_OBJS
+ar -crv libVoroGen.a VoroGen.o $VORO_OBJS
 
 DST="../../../Runtime/iOS"
 cp libVoroGen.a $DST
