@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96A31E5E2B075DAA00A620D6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 961EBAA62AFF0A67006CAE26 /* main.cpp */; };
+		96A31E5F2B075DAE00A620D6 /* VoroGen.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9672440E2B0636420052EDA5 /* VoroGen.cc */; };
+		96A31E612B075DFC00A620D6 /* libvoro++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A31E222B075C0500A620D6 /* libvoro++.a */; };
+		96A31E6D2B075E6500A620D6 /* c_loops.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E622B075E6500A620D6 /* c_loops.cc */; };
+		96A31E6E2B075E6500A620D6 /* v_compute.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E632B075E6500A620D6 /* v_compute.cc */; };
+		96A31E6F2B075E6500A620D6 /* unitcell.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E642B075E6500A620D6 /* unitcell.cc */; };
+		96A31E702B075E6500A620D6 /* wall.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E652B075E6500A620D6 /* wall.cc */; };
+		96A31E712B075E6500A620D6 /* pre_container.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E662B075E6500A620D6 /* pre_container.cc */; };
+		96A31E722B075E6500A620D6 /* container.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E672B075E6500A620D6 /* container.cc */; };
+		96A31E732B075E6500A620D6 /* container_prd.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E682B075E6500A620D6 /* container_prd.cc */; };
+		96A31E742B075E6500A620D6 /* common.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E692B075E6500A620D6 /* common.cc */; };
+		96A31E752B075E6500A620D6 /* cell.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E6A2B075E6500A620D6 /* cell.cc */; };
+		96A31E762B075E6500A620D6 /* v_base.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E6B2B075E6500A620D6 /* v_base.cc */; };
+		96A31E772B075E6500A620D6 /* voro++.cc in Sources */ = {isa = PBXBuildFile; fileRef = 96A31E6C2B075E6500A620D6 /* voro++.cc */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		96EF99E92B071D0000A36342 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		961EBA9E2AFEFBAB006CAE26 /* VoroGenTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VoroGenTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		961EBAA62AFF0A67006CAE26 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		96476F382B06062900B3A34E /* VoroGen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoroGen.h; sourceTree = "<group>"; };
+		9672440E2B0636420052EDA5 /* VoroGen.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VoroGen.cc; sourceTree = "<group>"; };
+		96A31E222B075C0500A620D6 /* libvoro++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libvoro++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96A31E622B075E6500A620D6 /* c_loops.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = c_loops.cc; path = "ThirdParty/voro++-0.4.6/src/c_loops.cc"; sourceTree = "<group>"; };
+		96A31E632B075E6500A620D6 /* v_compute.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = v_compute.cc; path = "ThirdParty/voro++-0.4.6/src/v_compute.cc"; sourceTree = "<group>"; };
+		96A31E642B075E6500A620D6 /* unitcell.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = unitcell.cc; path = "ThirdParty/voro++-0.4.6/src/unitcell.cc"; sourceTree = "<group>"; };
+		96A31E652B075E6500A620D6 /* wall.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = wall.cc; path = "ThirdParty/voro++-0.4.6/src/wall.cc"; sourceTree = "<group>"; };
+		96A31E662B075E6500A620D6 /* pre_container.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = pre_container.cc; path = "ThirdParty/voro++-0.4.6/src/pre_container.cc"; sourceTree = "<group>"; };
+		96A31E672B075E6500A620D6 /* container.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = container.cc; path = "ThirdParty/voro++-0.4.6/src/container.cc"; sourceTree = "<group>"; };
+		96A31E682B075E6500A620D6 /* container_prd.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = container_prd.cc; path = "ThirdParty/voro++-0.4.6/src/container_prd.cc"; sourceTree = "<group>"; };
+		96A31E692B075E6500A620D6 /* common.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = common.cc; path = "ThirdParty/voro++-0.4.6/src/common.cc"; sourceTree = "<group>"; };
+		96A31E6A2B075E6500A620D6 /* cell.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cell.cc; path = "ThirdParty/voro++-0.4.6/src/cell.cc"; sourceTree = "<group>"; };
+		96A31E6B2B075E6500A620D6 /* v_base.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = v_base.cc; path = "ThirdParty/voro++-0.4.6/src/v_base.cc"; sourceTree = "<group>"; };
+		96A31E6C2B075E6500A620D6 /* voro++.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "voro++.cc"; path = "ThirdParty/voro++-0.4.6/src/voro++.cc"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		961EBA9B2AFEFBAB006CAE26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A31E612B075DFC00A620D6 /* libvoro++.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96A31E202B075C0500A620D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BBE93492927253400D02ECC = {
+			isa = PBXGroup;
+			children = (
+				96A31E1D2B075B5A00A620D6 /* ThirdParty */,
+				4BBE93542927253400D02ECC /* VoroGen */,
+				961EBA9F2AFEFBAC006CAE26 /* VoroGenTest */,
+				4BBE93532927253400D02ECC /* Products */,
+				961EBAA82AFF0AB5006CAE26 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4BBE93532927253400D02ECC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				961EBA9E2AFEFBAB006CAE26 /* VoroGenTest */,
+				96A31E222B075C0500A620D6 /* libvoro++.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BBE93542927253400D02ECC /* VoroGen */ = {
+			isa = PBXGroup;
+			children = (
+				96476F382B06062900B3A34E /* VoroGen.h */,
+				9672440E2B0636420052EDA5 /* VoroGen.cc */,
+			);
+			path = VoroGen;
+			sourceTree = "<group>";
+		};
+		961EBA9F2AFEFBAC006CAE26 /* VoroGenTest */ = {
+			isa = PBXGroup;
+			children = (
+				961EBAA62AFF0A67006CAE26 /* main.cpp */,
+			);
+			path = VoroGenTest;
+			sourceTree = "<group>";
+		};
+		961EBAA82AFF0AB5006CAE26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96A31E1D2B075B5A00A620D6 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				96A31E622B075E6500A620D6 /* c_loops.cc */,
+				96A31E6A2B075E6500A620D6 /* cell.cc */,
+				96A31E692B075E6500A620D6 /* common.cc */,
+				96A31E682B075E6500A620D6 /* container_prd.cc */,
+				96A31E672B075E6500A620D6 /* container.cc */,
+				96A31E662B075E6500A620D6 /* pre_container.cc */,
+				96A31E642B075E6500A620D6 /* unitcell.cc */,
+				96A31E6B2B075E6500A620D6 /* v_base.cc */,
+				96A31E632B075E6500A620D6 /* v_compute.cc */,
+				96A31E6C2B075E6500A620D6 /* voro++.cc */,
+				96A31E652B075E6500A620D6 /* wall.cc */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		96A31E1E2B075C0500A620D6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		961EBA9D2AFEFBAB006CAE26 /* VoroGenTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 961EBAA22AFEFBAC006CAE26 /* Build configuration list for PBXNativeTarget "VoroGenTest" */;
+			buildPhases = (
+				961EBA9A2AFEFBAB006CAE26 /* Sources */,
+				961EBA9B2AFEFBAB006CAE26 /* Frameworks */,
+				96EF99E92B071D0000A36342 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VoroGenTest;
+			productName = VoronoiTest;
+			productReference = 961EBA9E2AFEFBAB006CAE26 /* VoroGenTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		96A31E212B075C0500A620D6 /* voro++ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96A31E232B075C0500A620D6 /* Build configuration list for PBXNativeTarget "voro++" */;
+			buildPhases = (
+				96A31E1E2B075C0500A620D6 /* Headers */,
+				96A31E1F2B075C0500A620D6 /* Sources */,
+				96A31E202B075C0500A620D6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "voro++";
+			productName = "voro++a";
+			productReference = 96A31E222B075C0500A620D6 /* libvoro++.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BBE934A2927253400D02ECC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					961EBA9D2AFEFBAB006CAE26 = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					96A31E212B075C0500A620D6 = {
+						CreatedOnToolsVersion = 15.1;
+					};
+				};
+			};
+			buildConfigurationList = 4BBE934D2927253400D02ECC /* Build configuration list for PBXProject "VoroGen" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4BBE93492927253400D02ECC;
+			productRefGroup = 4BBE93532927253400D02ECC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				961EBA9D2AFEFBAB006CAE26 /* VoroGenTest */,
+				96A31E212B075C0500A620D6 /* voro++ */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		961EBA9A2AFEFBAB006CAE26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A31E5E2B075DAA00A620D6 /* main.cpp in Sources */,
+				96A31E5F2B075DAE00A620D6 /* VoroGen.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96A31E1F2B075C0500A620D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A31E6D2B075E6500A620D6 /* c_loops.cc in Sources */,
+				96A31E6E2B075E6500A620D6 /* v_compute.cc in Sources */,
+				96A31E6F2B075E6500A620D6 /* unitcell.cc in Sources */,
+				96A31E702B075E6500A620D6 /* wall.cc in Sources */,
+				96A31E712B075E6500A620D6 /* pre_container.cc in Sources */,
+				96A31E722B075E6500A620D6 /* container.cc in Sources */,
+				96A31E732B075E6500A620D6 /* container_prd.cc in Sources */,
+				96A31E742B075E6500A620D6 /* common.cc in Sources */,
+				96A31E752B075E6500A620D6 /* cell.cc in Sources */,
+				96A31E762B075E6500A620D6 /* v_base.cc in Sources */,
+				96A31E772B075E6500A620D6 /* voro++.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4BBE93592927253400D02ECC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4BBE935A2927253400D02ECC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		961EBAA32AFEFBAC006CAE26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KR9H35SQQ9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/ThirdParty/voro++-0.4.6/src";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		961EBAA42AFEFBAC006CAE26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KR9H35SQQ9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/ThirdParty/voro++-0.4.6/src";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		96A31E242B075C0500A620D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KR9H35SQQ9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/ThirdParty/voro++-0.4.6/src";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		96A31E252B075C0500A620D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KR9H35SQQ9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/ThirdParty/voro++-0.4.6/src";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BBE934D2927253400D02ECC /* Build configuration list for PBXProject "VoroGen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BBE93592927253400D02ECC /* Debug */,
+				4BBE935A2927253400D02ECC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		961EBAA22AFEFBAC006CAE26 /* Build configuration list for PBXNativeTarget "VoroGenTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				961EBAA32AFEFBAC006CAE26 /* Debug */,
+				961EBAA42AFEFBAC006CAE26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96A31E232B075C0500A620D6 /* Build configuration list for PBXNativeTarget "voro++" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96A31E242B075C0500A620D6 /* Debug */,
+				96A31E252B075C0500A620D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BBE934A2927253400D02ECC /* Project object */;
+}

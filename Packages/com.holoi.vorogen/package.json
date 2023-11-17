@@ -1,0 +1,13 @@
+
+{
+    "author": "Holo Interactive",
+    "dependencies": { },
+    "description": "Voronoi Generator for Cell Space",
+    "displayName": "VoroGen",
+    "keywords": [ "unity" ],
+    "license": "Unlicense",
+    "name": "com.holoi.vorogen",
+    "unity": "2022.3",
+    "unityRelease": "0f1",
+    "version": "1.0.0"
+}
