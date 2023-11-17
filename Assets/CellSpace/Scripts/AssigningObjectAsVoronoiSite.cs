@@ -16,7 +16,7 @@ namespace CellSpace {
         {
             if (target != null) {
                 GetComponent<CellSpaceVoronoiGenerator>().sites 
-                    = target.transform.Cast<Transform>().Select(p => p.gameObject).ToArray();
+                    = target.transform.Cast<Transform>()?.Select(p => p.gameObject).ToArray();
             }
         }
     }

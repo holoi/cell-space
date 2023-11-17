@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/CellSpace/Scenes/CellSpace_Basic.unity
     guid: 19b6db72d3a9744128946524fe3a2186
-  - enabled: 0
+  - enabled: 1
     path: Assets/CellSpace/Scenes/CellSpace_Multiplayer.unity
     guid: 10637ee2bb1c74d4d9f672ae5c78b233
   m_configObjects:

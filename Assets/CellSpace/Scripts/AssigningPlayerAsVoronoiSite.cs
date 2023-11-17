@@ -14,7 +14,7 @@ namespace CellSpace {
         void Update()
         {
             GetComponent<CellSpaceVoronoiGenerator>().sites 
-                = FindObjectsOfType<PlayerPoseSynchronizer>().Select(p => p.gameObject).ToArray();
+                = FindObjectsOfType<PlayerPoseSynchronizer>()?.Select(p => p.gameObject).ToArray();
         }
     }
 }

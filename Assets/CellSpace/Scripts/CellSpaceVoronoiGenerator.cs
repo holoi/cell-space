@@ -47,6 +47,10 @@ namespace CellSpace {
         private void CreateTriangulation()
         {
             int n = sites.Length;
+            if (sites.Any(p => p == null)) {
+                return;
+            }
+
             var weightedPoints = sites.Select(p => new WeightedPoint { x = p.transform.position.x,
                     y = p.transform.position.y,
                     z = p.transform.position.z,

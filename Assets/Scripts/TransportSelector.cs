@@ -32,7 +32,7 @@ public class TransportSelector : MonoBehaviour
 
     private void Start()
     {
-        OnAirDropToggled(true);
+        OnRouterToggled(true);
     }
 
     public void OnAirDropToggled(bool value)

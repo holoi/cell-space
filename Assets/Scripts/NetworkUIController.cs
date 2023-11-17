@@ -71,7 +71,7 @@ public class NetworkUIController : MonoBehaviour
     public void StartHost()
     {
         string localIPAddress = GetLocalIPAddress();
-        //Debug.Log($"Local IP Address: {localIPAddress}");
+        Debug.Log($"Local IP Address: {localIPAddress}");
         var unityTransport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         unityTransport.SetConnectionData(localIPAddress, (ushort)7777);
         unityTransport.ConnectionData.ServerListenAddress = "0.0.0.0";
