@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 public class NetworkPermissionTrigger : MonoBehaviour
 {
     // URL to trigger network permission - it should be a valid URL
-    private string testUrl = "http://www.baidu.com";
+    private string testUrl = "https://www.baidu.com";
 
     // Start is called before the first frame update
     void Start()
