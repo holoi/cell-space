@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.community.netcode.transport.multipeer-connectivity": {
-      "version": "https://github.com/Unity-Technologies/multiplayer-community-contributions.git?path=/Transports/com.community.netcode.transport.multipeer-connectivity",
+      "version": "https://github.com/holoi/netcode-transport-multipeerconnectivity.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b2265b5a650ccc1c4ea4526351839b1c6e3263e0"
+      "hash": "e815086c674bc82c417f31c244939dac3d7fb81e"
     },
     "com.holoi.vorogen": {
       "version": "file:com.holoi.vorogen",
@@ -39,7 +39,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
-      "version": "1.8.9",
+      "version": "1.8.10",
       "depth": 1,
       "source": "registry",
       "dependencies": {
