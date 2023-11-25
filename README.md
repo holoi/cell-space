@@ -2,9 +2,7 @@
 
 We write a customized Voronoi generator plugin in `Packages/com.holoi.vorogen`. 
 
-https://github.com/holoi/cell-space/assets/2534431/98fc2a45-8bf4-4318-9393-07421a87dcea
-
-https://github.com/holoi/cell-space/assets/2534431/b3113dae-1f6e-430a-bdfd-4fd752527765
+<img width="500" alt="image" src="Packages/com.holoi.vorogen/Documentation~/Media/vorogen.avif">
 
 Open `CellSpace_Basic.scene`, in `VoronoiGenerator`, you can adjust `offset` and `bounds`.
 You can move and adjust all objects in `VoronoiSites` by tuning the position of players and the scale of the objects (weights).

@@ -4,16 +4,17 @@
 
 using UnityEngine;
 using System.Linq;
+using VoroGen;
 
 namespace CellSpace {
 
-    [RequireComponent(typeof(CellSpaceVoronoiGenerator))]
+    [RequireComponent(typeof(VoronoiGenerator))]
     public class AssigningPlayerAsVoronoiSite : MonoBehaviour 
     {
         // Update is called once per frame
         void Update()
         {
-            GetComponent<CellSpaceVoronoiGenerator>().sites 
+            GetComponent<VoronoiGenerator>().sites 
                 = FindObjectsOfType<PlayerPoseSynchronizer>()?.Select(p => p.gameObject).ToArray();
         }
     }

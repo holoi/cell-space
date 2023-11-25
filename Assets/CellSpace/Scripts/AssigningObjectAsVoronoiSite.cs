@@ -4,10 +4,11 @@
 
 using UnityEngine;
 using System.Linq;
+using VoroGen;
 
 namespace CellSpace {
 
-    [RequireComponent(typeof(CellSpaceVoronoiGenerator))]
+    [RequireComponent(typeof(VoronoiGenerator))]
     public class AssigningObjectAsVoronoiSite : MonoBehaviour 
     {
         public GameObject target;
@@ -15,7 +16,7 @@ namespace CellSpace {
         void Update()
         {
             if (target != null) {
-                GetComponent<CellSpaceVoronoiGenerator>().sites 
+                GetComponent<VoronoiGenerator>().sites 
                     = target.transform.Cast<Transform>()?.Select(p => p.gameObject).ToArray();
             }
         }
