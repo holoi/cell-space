@@ -54,16 +54,26 @@ namespace VoroGen
             var meshes = VoronoiGeneratorAPI.GenerateVoronoi(weightedPoints, bounds, offset);
             
             for (int i = 0; i < meshes.Length; i++) {
+                var (cellVertices, cellTriangles, cellLines) = meshes[i];
                 {
                     string cellName = $"Cell Volume {i}";
                     GameObject cell = transform.Find(cellName)?.gameObject;
                     if (cell == null) {
                         cell = new GameObject(cellName);
                         cell.transform.parent = transform;
-                        cell.AddComponent<MeshFilter>().mesh = meshes[i].Item1;
+                        cell.AddComponent<MeshFilter>().mesh = new Mesh();
                         cell.AddComponent<MeshRenderer>().material = cellMaterial;
+                    }
+
+                    var mesh = cell.GetComponent<MeshFilter>().mesh;
+                    mesh.name = $"Cell Volume {i}";
+                    if (cellVertices.Length > 0) {
+                        mesh.SetVertices(cellVertices);
+                        mesh.SetIndices(cellTriangles, MeshTopology.Triangles, 0);
+                        mesh.RecalculateNormals();
+                        mesh.RecalculateBounds();
                     } else {
-                        cell.GetComponent<MeshFilter>().mesh = meshes[i].Item1;
+                        mesh.Clear();
                     }
                 }
 
@@ -73,10 +83,18 @@ namespace VoroGen
                     if (cell == null) {
                         cell = new GameObject(cellName);
                         cell.transform.parent = transform;
-                        cell.AddComponent<MeshFilter>().mesh = meshes[i].Item2;
+                        cell.AddComponent<MeshFilter>().mesh = new Mesh();
                         cell.AddComponent<MeshRenderer>().material = wireframeMaterial;
+                    } 
+
+                    var mesh = cell.GetComponent<MeshFilter>().mesh;
+                    mesh.name = $"Cell Wireframe {i}";
+                    if (cellVertices.Length > 0) {
+                        mesh.SetVertices(cellVertices);
+                        mesh.SetIndices(cellLines, MeshTopology.Lines, 0);
+                        mesh.RecalculateBounds();
                     } else {
-                        cell.GetComponent<MeshFilter>().mesh = meshes[i].Item2;
+                        mesh.Clear(); 
                     }
                 }
             }

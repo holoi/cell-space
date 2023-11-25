@@ -101,7 +101,7 @@ void test() {
 int main() {
     auto m_StartTime = std::chrono::system_clock::now();
     
-    for (int i = 0; i < 60; i++) {
+    for (int i = 0; i < 10000; i++) {
         test();
     }
     auto m_EndTime = std::chrono::system_clock::now();

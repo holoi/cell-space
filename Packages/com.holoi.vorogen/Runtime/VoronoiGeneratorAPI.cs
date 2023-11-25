@@ -22,13 +22,18 @@ namespace VoroGen
 
     public class VoronoiGeneratorAPI
     {
-        public static (Mesh, Mesh)[] GenerateVoronoi(WeightedPoint[] weightedPoints, Bounds bounds, float offset = 0.0f)
+        // This is the function you need to call to generate the voronoi diagram. 
+        // array of weighted points, bounds of the voronoi diagram, and offset are the inputs
+        // the output is an array of meshes, each mesh is a cell of the voronoi diagram
+        // each mesh is represented by an array of vertices, an array of triangles, and an array of lines
+        // cellVertices, cellTriangles, cellLines
+        public static (Vector3[], int[], int[])[] GenerateVoronoi(WeightedPoint[] weightedPoints, Bounds bounds, float offset = 0.0f)
         {
             int n = weightedPoints.Length;
             IntPtr verticesPtr, trianglesPtr, linesPtr;
             IntPtr numVerticesPtr, numTrianglesPtr, numLinesPtr;
 
-            (Mesh, Mesh)[] meshes = new (Mesh, Mesh)[n];
+            (Vector3[], int[], int[])[] meshes = new (Vector3[], int[], int[])[n];
 
             VoroGen_ComputeVoronoi(
                 weightedPoints,
@@ -95,26 +100,14 @@ namespace VoroGen
                     cellLines[j] = lines[totalLinesOut + j];
                 }
 
-                Mesh mesh = new Mesh();
-                mesh.name = $"Cell {i}";
-                mesh.SetVertices(cellVertices);
-                mesh.SetIndices(cellTriangles, MeshTopology.Triangles, 0);
-                mesh.RecalculateNormals();
-                mesh.RecalculateBounds();
-
-                Mesh wireframe = new Mesh();
-                wireframe.name = $"Cell Wireframe {i}";
-                wireframe.SetVertices(cellVertices);
-                wireframe.SetIndices(cellLines, MeshTopology.Lines, 0);
-                wireframe.RecalculateBounds();
-                meshes[i] = (mesh, wireframe);
+                meshes[i] = (cellVertices, cellTriangles, cellLines);
 
                 totalVerticesOut += numVertices[i];
                 totalTrianglesOut += numTriangles[i];
                 totalLinesOut += numLines[i];
             }
 
-            return meshes;
+           return meshes;
         }
         
         #if !UNITY_EDITOR && UNITY_IOS
