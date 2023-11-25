@@ -96,12 +96,14 @@ namespace VoroGen
                 }
 
                 Mesh mesh = new Mesh();
+                mesh.name = $"Cell {i}";
                 mesh.SetVertices(cellVertices);
                 mesh.SetIndices(cellTriangles, MeshTopology.Triangles, 0);
                 mesh.RecalculateNormals();
                 mesh.RecalculateBounds();
 
                 Mesh wireframe = new Mesh();
+                wireframe.name = $"Cell Wireframe {i}";
                 wireframe.SetVertices(cellVertices);
                 wireframe.SetIndices(cellLines, MeshTopology.Lines, 0);
                 wireframe.RecalculateBounds();
