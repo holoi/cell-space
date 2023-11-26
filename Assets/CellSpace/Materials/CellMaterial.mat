@@ -137,10 +137,10 @@ Material:
     - Color_1221528D: {r: 0.3679245, g: 0.16140084, b: 0.16792265, a: 0.59607846}
     - Color_153A63E5: {r: 0, g: 0, b: 0, a: 0}
     - Color_5E824EC8: {r: 1, g: 1, b: 1, a: 0}
-    - Color_6F4043B5: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.31764707}
+    - Color_6F4043B5: {r: 0.40738314, g: 0.120508485, b: 0.120508485, a: 0.5}
     - Color_B5BC8A73: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

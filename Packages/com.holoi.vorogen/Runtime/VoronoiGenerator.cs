@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using System.Text;
+using UnityEditor;
 
 namespace VoroGen
 {
@@ -25,10 +26,15 @@ namespace VoroGen
         [Range(0.0f, 0.1f)]
         public float offset;
         public GameObject[] sites;
+        Color[] colors = null;
+        Material[] wireframeMaterials;
+        Material[] cellMaterials;
+
 
         // Start is called before the first frame update
         void Start()
         {
+            
         }
 
 
@@ -46,12 +52,30 @@ namespace VoroGen
                 return;
             }
 
+            if (colors == null || colors.Length != n) {
+                colors = new Color[n];
+                wireframeMaterials = new Material[n];
+                cellMaterials = new Material[n];
+                for (int i = 0; i < n; i++) {
+                    colors[i] = UnityEngine.Random.ColorHSV(0.1f, 0.8f, 0.7f, 0.9f);
+                    wireframeMaterials[i] = new Material(wireframeMaterial);
+                    cellMaterials[i] = new Material(cellMaterial);
+                    cellMaterials[i].SetColor("Color_6F4043B5", new Color(colors[i].r, colors[i].g, colors[i].b, 0.2f));
+                    wireframeMaterials[i].SetColor("Color_6F4043B5", colors[i]);
+                }
+            }
+
             var weightedPoints = sites.Select(p => new WeightedPoint { x = p.transform.position.x,
                     y = p.transform.position.y,
                     z = p.transform.position.z,
                     w = p.transform.localScale.x} ).ToArray();
+            
+            var offsetBounds = new Bounds(new Vector3(bounds.center.x + transform.position.x,
+                bounds.center.y + transform.position.y,
+                bounds.center.z + transform.position.z), bounds.size);
 
-            var meshes = VoronoiGeneratorAPI.GenerateVoronoi(weightedPoints, bounds, offset);
+            var meshes = VoronoiGeneratorAPI.GenerateVoronoi(weightedPoints, offsetBounds, offset);
+            
             
             for (int i = 0; i < meshes.Length; i++) {
                 var (cellVertices, cellTriangles, cellLines) = meshes[i];
@@ -62,7 +86,7 @@ namespace VoroGen
                         cell = new GameObject(cellName);
                         cell.transform.parent = transform;
                         cell.AddComponent<MeshFilter>().mesh = new Mesh();
-                        cell.AddComponent<MeshRenderer>().material = cellMaterial;
+                        cell.AddComponent<MeshRenderer>().material = cellMaterials[i];
                     }
 
                     var mesh = cell.GetComponent<MeshFilter>().mesh;
@@ -84,7 +108,7 @@ namespace VoroGen
                         cell = new GameObject(cellName);
                         cell.transform.parent = transform;
                         cell.AddComponent<MeshFilter>().mesh = new Mesh();
-                        cell.AddComponent<MeshRenderer>().material = wireframeMaterial;
+                        cell.AddComponent<MeshRenderer>().material = wireframeMaterials[i];
                     } 
 
                     var mesh = cell.GetComponent<MeshFilter>().mesh;
