@@ -2,6 +2,7 @@
 
 #include <chrono>
 #include <iostream>
+#include <random>
 
 //void test() {
 //    std::vector<Weighted_point_3> points;
@@ -32,24 +33,36 @@
 //}
 
 void test() {
-    float* weighted_points = new float[] {
-        19.6542, 10.9324, 40.53077, 1,
-        23.3496, 18.7361, 10.54947, 1,
-        21.3651, 13.872, 30.59779, 1, 
-        14.404, 21.8245, 1.58279, 1,
-        19.6542, 10.9324, 40.53077, 1,
-        8.34219, 16.9751, 0.55933, 1,
-        7.05614, 8.69331, 1.55608, 1, 
-        18.71, 10.7257, 1.56997, 1,
-        14.5137, 7.4029, 1.50375, 1, 
-        15.7983, 16.2696, 1.52043, 1,
-        23.81, 10.0232, 1.57585, 1,
-        23.543, 7.93398, 1.91253, 1,
-        9.0225, 15.0061, 1.1218, 1, 
-        13.5859, 14.6321, 1.6586, 1
-    };
+    std::uniform_real_distribution<float> real_dist(0, 50.0);
+    std::random_device myRandomDevice;
+    unsigned seed = myRandomDevice();
+    std::default_random_engine random_engine(seed);
 
     int numPoints = 14;
+    float* weighted_points = new float[numPoints * 4];
+    for (int i = 0; i < numPoints; i++) {
+        weighted_points[i * 4] = real_dist(random_engine);
+        weighted_points[i * 4 + 1] = real_dist(random_engine);
+        weighted_points[i * 4 + 2] = real_dist(random_engine);
+        weighted_points[i * 4 + 3] = 1;
+    }
+
+    // float* weighted_points = new float[] {
+    //     19.6542, 10.9324, 40.53077, 1,
+    //     23.3496, 18.7361, 10.54947, 1,
+    //     21.3651, 13.872, 30.59779, 1, 
+    //     14.404, 21.8245, 1.58279, 1,
+    //     19.6542, 10.9324, 40.53077, 1,
+    //     8.34219, 16.9751, 0.55933, 1,
+    //     7.05614, 8.69331, 1.55608, 1, 
+    //     18.71, 10.7257, 1.56997, 1,
+    //     14.5137, 7.4029, 1.50375, 1, 
+    //     15.7983, 16.2696, 1.52043, 1,
+    //     23.81, 10.0232, 1.57585, 1,
+    //     23.543, 7.93398, 1.91253, 1,
+    //     9.0225, 15.0061, 1.1218, 1, 
+    //     13.5859, 14.6321, 1.6586, 1
+    // };
 
     float* verticesOut;
     int* numVerticesOut;
@@ -69,18 +82,18 @@ void test() {
     int totalTriangles = 0;
     int totalLines = 0;
     for (int i = 0; i < numPoints; i++) {
-        for (int j = 0; j < numVerticesOut[i]; j++) {
-            std::cout << verticesOut[totalVertices + j] << " ";
-        }
-        std::cout << std::endl;
-        for (int j = 0; j < numTrianglesOut[i]; j++) {
-            std::cout << trianglesOut[totalTriangles + j] << " ";
-        }
-        std::cout << std::endl;
-        for (int j = 0; j < numLinesOut[i]; j++) {
-            std::cout << linesOut[totalLines + j] << " ";
-        }
-        std::cout << std::endl;
+//        for (int j = 0; j < numVerticesOut[i]; j++) {
+//            std::cout << verticesOut[totalVertices + j] << " ";
+//        }
+//        std::cout << std::endl;
+//        for (int j = 0; j < numTrianglesOut[i]; j++) {
+//            std::cout << trianglesOut[totalTriangles + j] << " ";
+//        }
+//        std::cout << std::endl;
+//        for (int j = 0; j < numLinesOut[i]; j++) {
+//            std::cout << linesOut[totalLines + j] << " ";
+//        }
+//        std::cout << std::endl;
 
         totalVertices += numVerticesOut[i];
         totalTriangles += numTrianglesOut[i];

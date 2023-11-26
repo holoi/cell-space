@@ -4,6 +4,10 @@
 
 #include "voro++.hh"
 #include "VoroGen.h"
+#include <map>
+#include <vector>
+#include <iostream>
+#include <cassert>
 
 extern "C" {
 
@@ -24,14 +28,15 @@ extern "C" {
         int n_x = 6, n_y = 6, n_z = 6;
         voro::container_poly con(minX, maxX, minY, maxY, minZ, maxZ, n_x, n_y, n_z, false, false, false, 8);
         
+        std::map<std::tuple<float, float, float>, int> pointIndex;
         for (int i = 0; i < numPoints; i++) {
             con.put(i, weighted_points[i * 4], weighted_points[i * 4 + 1], weighted_points[i * 4 + 2], weighted_points[i * 4 + 3]);
+            pointIndex[std::make_tuple(weighted_points[i * 4], weighted_points[i * 4 + 1], weighted_points[i * 4 + 2])] = i;
         }
         
         auto vertices = std::vector<std::vector<float>>(numPoints, std::vector<float>());
         auto triangles = std::vector<std::vector<int>>(numPoints, std::vector<int>());
         auto lines = std::vector<std::vector<int>>(numPoints, std::vector<int>());
-
         voro::c_loop_all vl(con);
         int vi = 0;
         if (vl.start()) {
@@ -41,50 +46,55 @@ extern "C" {
                     break;
                 }
                 double* site_ptr = con.p[vl.ijk] + con.ps * vl.q;
-                                
-                if (cell.p > 0) {
-                    double* cellpts_ptr = cell.pts;
+                auto t = std::make_tuple(site_ptr[0], site_ptr[1], site_ptr[2]);
+                if (pointIndex.count(t) > 0) {
                     
-                    // Add vertices
-                    for(int i = 0; i < cell.p; i++, cellpts_ptr += 3) {
-                        for (int d = 0; d < 3; d++) {
-                            vertices[vi].push_back(site_ptr[d] + cellpts_ptr[d] * (0.5 - offset));
-                        }
-                    }
-                    
-                    // Add WireFrame
-                    for(int i = 1; i < cell.p; i++){
-                        for(int j = 0; j < cell.nu[i]; j++) {
-                            int k = cell.ed[i][j];
-                            
-                            if( k >= 0 ) {
-                                lines[vi].push_back(i);
-                                lines[vi].push_back(k);
+                    int pi = pointIndex[t];
+
+                    if (cell.p > 0) {
+                        double* cellpts_ptr = cell.pts;
+                        
+                        // Add vertices
+                        for(int i = 0; i < cell.p; i++, cellpts_ptr += 3) {
+                            for (int d = 0; d < 3; d++) {
+                                vertices[pi].push_back(site_ptr[d] + cellpts_ptr[d] * (0.5 - offset));
                             }
                         }
-                    }
-
-                    // Add Triangles
-                    for(int i = 1; i < cell.p; i++) {
-                        for(int j = 0; j < cell.nu[i]; j++) {
-                            
-                            int k = cell.ed[i][j];
-                            if (k >= 0) {
-                                cell.ed[i][j] = -1 - k;
-                                int l = cell.cycle_up( cell.ed[i][cell.nu[i] + j], k);
-                                int m = cell.ed[k][l];
-                                cell.ed[k][l] = -1 - m;
+                        
+                        // Add WireFrame
+                        for(int i = 1; i < cell.p; i++){
+                            for(int j = 0; j < cell.nu[i]; j++) {
+                                int k = cell.ed[i][j];
                                 
-                                while (m != i) {
-                                    int n = cell.cycle_up(cell.ed[k][cell.nu[k]+l], m);
-                                    triangles[vi].push_back(i);
-                                    triangles[vi].push_back(k);
-                                    triangles[vi].push_back(m);
-                                    
-                                    k = m;
-                                    l = n;
-                                    m = cell.ed[k][l];
+                                if( k >= 0 ) {
+                                    lines[pi].push_back(i);
+                                    lines[pi].push_back(k);
+                                }
+                            }
+                        }
+                        
+                        // Add Triangles
+                        for(int i = 1; i < cell.p; i++) {
+                            for(int j = 0; j < cell.nu[i]; j++) {
+                                
+                                int k = cell.ed[i][j];
+                                if (k >= 0) {
+                                    cell.ed[i][j] = -1 - k;
+                                    int l = cell.cycle_up( cell.ed[i][cell.nu[i] + j], k);
+                                    int m = cell.ed[k][l];
                                     cell.ed[k][l] = -1 - m;
+                                    
+                                    while (m != i) {
+                                        int n = cell.cycle_up(cell.ed[k][cell.nu[k]+l], m);
+                                        triangles[pi].push_back(i);
+                                        triangles[pi].push_back(k);
+                                        triangles[pi].push_back(m);
+                                        
+                                        k = m;
+                                        l = n;
+                                        m = cell.ed[k][l];
+                                        cell.ed[k][l] = -1 - m;
+                                    }
                                 }
                             }
                         }
@@ -95,7 +105,7 @@ extern "C" {
         }
         
         // Calculate total size
-        int totalCell = vi;
+        int totalCell = numPoints;
         int totalVerticesOut = 0;
         int totalTrianglesOut = 0;
         int totalLinesOut = 0;

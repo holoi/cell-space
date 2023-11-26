@@ -57,11 +57,11 @@ namespace VoroGen
                 wireframeMaterials = new Material[n];
                 cellMaterials = new Material[n];
                 for (int i = 0; i < n; i++) {
-                    colors[i] = UnityEngine.Random.ColorHSV(0.1f, 0.8f, 0.7f, 0.9f);
+                    colors[i] = UnityEngine.Random.ColorHSV(0.05f, 0.3f, 0.85f, 0.95f, 0.85f, 0.95f);
                     wireframeMaterials[i] = new Material(wireframeMaterial);
                     cellMaterials[i] = new Material(cellMaterial);
-                    cellMaterials[i].SetColor("Color_6F4043B5", new Color(colors[i].r, colors[i].g, colors[i].b, 0.2f));
-                    wireframeMaterials[i].SetColor("Color_6F4043B5", colors[i]);
+                    cellMaterials[i].SetColor("_Wire_Color", new Color(colors[i].r, colors[i].g, colors[i].b, 0.1f));
+                    wireframeMaterials[i].SetColor("_Wire_Color", colors[i]);
                 }
             }
 
@@ -75,7 +75,6 @@ namespace VoroGen
                 bounds.center.z + transform.position.z), bounds.size);
 
             var meshes = VoronoiGeneratorAPI.GenerateVoronoi(weightedPoints, offsetBounds, offset);
-            
             
             for (int i = 0; i < meshes.Length; i++) {
                 var (cellVertices, cellTriangles, cellLines) = meshes[i];

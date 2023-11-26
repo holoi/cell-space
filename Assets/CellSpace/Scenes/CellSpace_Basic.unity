@@ -837,9 +837,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HumanSegmentationStencilMode: 1
   m_HumanSegmentationDepthMode: 1
-  m_EnvironmentDepthMode: 1
+  m_EnvironmentDepthMode: 0
   m_EnvironmentDepthTemporalSmoothing: 1
-  m_OcclusionPreferenceMode: 0
+  m_OcclusionPreferenceMode: 1
 --- !u!114 &645122390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   bounds:
     m_Center: {x: 3, y: 0.5, z: 5}
     m_Extent: {x: 3, y: 2, z: 3}
-  offset: 0.012
+  offset: 0.0494
   sites:
   - {fileID: 1701830436}
   - {fileID: 1860936164}
@@ -1791,7 +1791,6 @@ MonoBehaviour:
   - {fileID: 1753504868}
   - {fileID: 587511995}
   - {fileID: 946488622}
-  colors: []
 --- !u!4 &1327201943
 Transform:
   m_ObjectHideFlags: 0
