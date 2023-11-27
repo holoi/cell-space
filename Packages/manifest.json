@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.holoi.netcode.transport.multipeer-connectivity": "1.0.1",
+    "com.holoi.netcode.transport.multipeer-connectivity": "1.0.2",
     "com.holoi.xr.holokit": "https://github.com/holoi/holokit-unity-sdk.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.0",

@@ -60,8 +60,8 @@ namespace VoroGen
                     colors[i] = UnityEngine.Random.ColorHSV(0.05f, 0.3f, 0.85f, 0.95f, 0.85f, 0.95f);
                     wireframeMaterials[i] = new Material(wireframeMaterial);
                     cellMaterials[i] = new Material(cellMaterial);
-                    cellMaterials[i].SetColor("_Wire_Color", new Color(colors[i].r, colors[i].g, colors[i].b, 0.1f));
-                    wireframeMaterials[i].SetColor("_Wire_Color", colors[i]);
+                    cellMaterials[i].SetColor("_Wire_Color", new Color(colors[i].r, colors[i].g, colors[i].b, 0.0f));
+                    wireframeMaterials[i].SetColor("_Wire_Color", new Color(colors[i].r * 1.2f, colors[i].g * 1.2f, colors[i].b * 1.2f, 1.3f));
                 }
             }
 
