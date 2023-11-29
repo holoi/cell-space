@@ -13,7 +13,7 @@ public class CentralController : NetworkBehaviour
     public NetworkVariable<bool> dancerState;
     public NetworkVariable<bool> cellState;
     public NetworkVariable<float> scale;
-   
+    
 
     // Update is called once per frame
     void Update()
@@ -43,11 +43,17 @@ public class CentralController : NetworkBehaviour
             Debug.Log("Player " + Index + "is not a cell");
         }
     }
+    public void onScaleChanged(float previous,float current)
+    {
+        GetComponent<Transform>().localScale = new Vector3(scale.Value,scale.Value,scale.Value);
+        Debug.Log("Player " + Index + " changed scale to"+scale.Value);
+    }
 
     public override void OnNetworkSpawn()
     {
         dancerState.OnValueChanged += OnDancerStateChanged;
         cellState.OnValueChanged += OnCellStateChanged;
+        scale.OnValueChanged += onScaleChanged;
         Index = NetworkManager.Singleton.ConnectedClients.Count;
         if (IsOwner)
         {
