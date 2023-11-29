@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5331183624995983526}
   - component: {fileID: 4277107362026446594}
   - component: {fileID: 4133304374819635627}
+  - component: {fileID: -7040854718248668997}
   m_Layer: 0
   m_Name: Player Pose Indicator
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
+  GlobalObjectIdHash: 3178133737
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -69,3 +70,21 @@ MonoBehaviour:
   m_PositionLerpSpeed: 5
   m_RotationLerpSpeed: 5
   m_HoloKitMarkPrefab: {fileID: 2280931343860109315, guid: 46cda46aeea43471aaf495ebf2093d82, type: 3}
+--- !u!114 &-7040854718248668997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21633727457173676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe4315d729c74b598cd260f9b91618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dancerState:
+    m_InternalValue: 0
+  cellState:
+    m_InternalValue: 0
+  scale:
+    m_InternalValue: 0
