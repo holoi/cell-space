@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -94,7 +94,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: d19d6b8b378ee4048bb6b30343af97aa, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: be05e2268c402458eb61e550084d8b69, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 578886658}
   - component: {fileID: 578886657}
   - component: {fileID: 578886660}
+  - component: {fileID: 578886661}
   m_Layer: 0
   m_Name: Cube4
   m_TagString: Untagged
@@ -518,6 +519,19 @@ MonoBehaviour:
   frequency: 0.2
   octaves: 2
   seed: 0
+--- !u!114 &578886661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578886655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
 --- !u!1 &587511995
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +545,7 @@ GameObject:
   - component: {fileID: 587511998}
   - component: {fileID: 587511997}
   - component: {fileID: 587512000}
+  - component: {fileID: 587512001}
   m_Layer: 0
   m_Name: Cube7
   m_TagString: Untagged
@@ -649,6 +664,19 @@ MonoBehaviour:
   frequency: 0.2
   octaves: 2
   seed: 0
+--- !u!114 &587512001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587511995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
 --- !u!1 &608616052
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +690,7 @@ GameObject:
   - component: {fileID: 608616055}
   - component: {fileID: 608616054}
   - component: {fileID: 608616057}
+  - component: {fileID: 608616058}
   m_Layer: 0
   m_Name: Cube3
   m_TagString: Untagged
@@ -780,6 +809,19 @@ MonoBehaviour:
   frequency: 0.2
   octaves: 2
   seed: 0
+--- !u!114 &608616058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608616052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
 --- !u!1 &645122387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1142,7 @@ GameObject:
   - component: {fileID: 946488625}
   - component: {fileID: 946488624}
   - component: {fileID: 946488627}
+  - component: {fileID: 946488628}
   m_Layer: 0
   m_Name: Cube8
   m_TagString: Untagged
@@ -1218,6 +1261,19 @@ MonoBehaviour:
   frequency: 0.2
   octaves: 2
   seed: 0
+--- !u!114 &946488628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946488622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
 --- !u!1 &1025403719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1633,8 @@ GameObject:
   - component: {fileID: 1218995444}
   - component: {fileID: 1218995443}
   - component: {fileID: 1218995446}
+  - component: {fileID: 1218995448}
+  - component: {fileID: 1218995447}
   m_Layer: 0
   m_Name: Cube5
   m_TagString: Untagged
@@ -1695,6 +1753,32 @@ MonoBehaviour:
   frequency: 0.2
   octaves: 2
   seed: 0
+--- !u!114 &1218995447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218995441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+--- !u!114 &1218995448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218995441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
 --- !u!1 &1301820106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,6 +2366,7 @@ GameObject:
   - component: {fileID: 1701830439}
   - component: {fileID: 1701830438}
   - component: {fileID: 1701830441}
+  - component: {fileID: 1701830442}
   m_Layer: 0
   m_Name: Cube1
   m_TagString: Untagged
@@ -2384,7 +2469,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701830436}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 543ddbe12367a4899b011d43ef41f357, type: 3}
   m_Name: 
@@ -2400,6 +2485,19 @@ MonoBehaviour:
   frequency: 0.1
   octaves: 2
   seed: 0
+--- !u!114 &1701830442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701830436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
 --- !u!1 &1743278145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,6 +2560,7 @@ GameObject:
   - component: {fileID: 1753504871}
   - component: {fileID: 1753504870}
   - component: {fileID: 1753504873}
+  - component: {fileID: 1753504874}
   m_Layer: 0
   m_Name: Cube6
   m_TagString: Untagged
@@ -2580,6 +2679,19 @@ MonoBehaviour:
   frequency: 0.2
   octaves: 2
   seed: 0
+--- !u!114 &1753504874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753504868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
 --- !u!1 &1849389207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2800,6 +2912,7 @@ GameObject:
   - component: {fileID: 1860936167}
   - component: {fileID: 1860936166}
   - component: {fileID: 1860936169}
+  - component: {fileID: 1860936170}
   m_Layer: 0
   m_Name: Cube2
   m_TagString: Untagged
@@ -2918,6 +3031,19 @@ MonoBehaviour:
   frequency: 0.2
   octaves: 2
   seed: 0
+--- !u!114 &1860936170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860936164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
 --- !u!1 &2049542897
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,14 +3,12 @@
 // SPDX-License-Identifier: MIT
 
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System;
-using System.Text;
 using UnityEditor;
+using VoroGen;
 
-namespace VoroGen
+namespace CellSpace
 {
     public class VoronoiGenerator : MonoBehaviour 
     {
@@ -60,7 +58,8 @@ namespace VoroGen
                     colors[i] = UnityEngine.Random.ColorHSV(0.05f, 0.3f, 0.85f, 0.95f, 0.85f, 0.95f);
                     wireframeMaterials[i] = new Material(wireframeMaterial);
                     cellMaterials[i] = new Material(cellMaterial);
-                    cellMaterials[i].SetColor("_Wire_Color", new Color(colors[i].r, colors[i].g, colors[i].b, 0.0f));
+                    var cellRole = sites[i].GetComponent<CellRole>();
+                    cellMaterials[i].SetColor("_Wire_Color", new Color(colors[i].r, colors[i].g, colors[i].b, cellRole != null && cellRole.isPlayer ? 0.1f : 0.0f));
                     wireframeMaterials[i].SetColor("_Wire_Color", new Color(colors[i].r * 1.2f, colors[i].g * 1.2f, colors[i].b * 1.2f, 1.3f));
                 }
             }
@@ -108,17 +107,34 @@ namespace VoroGen
                         cell.transform.parent = transform;
                         cell.AddComponent<MeshFilter>().mesh = new Mesh();
                         cell.AddComponent<MeshRenderer>().material = wireframeMaterials[i];
+                        cell.AddComponent<TubeRenderer>();
                     } 
 
-                    var mesh = cell.GetComponent<MeshFilter>().mesh;
-                    mesh.name = $"Cell Wireframe {i}";
-                    if (cellVertices.Length > 0) {
-                        mesh.SetVertices(cellVertices);
-                        mesh.SetIndices(cellLines, MeshTopology.Lines, 0);
-                        mesh.RecalculateBounds();
-                    } else {
-                        mesh.Clear(); 
-                    }
+                    var tube = cell.GetComponent<TubeRenderer>();
+                    tube.SetPositions(cellVertices);
+                    tube.SetIndices(cellLines);
+                    tube.tubularSegments = 16;
+                    tube.radialSegments = 10;
+                    tube.radius = 0.01f;
+
+                    // cell.GetComponentsInChildren( typeof(Transform ) )
+                    //     .Where( t => t != cell.transform )
+                    //     .ToList()
+                    //     .ForEach( t => Destroy( t.gameObject ) );
+                    
+                    // for (int j = 0; j < cellLines.Length; j += 2) {
+                    //     var cellLine = new GameObject();
+                    //     cellLine.transform.parent = cell.transform;
+
+                    //     var lineRender = cellLine.AddComponent<LineRenderer>();
+                    //     lineRender.material = wireframeMaterials[i];
+                    //     lineRender.SetPositions(new Vector3[] { 
+                    //         cellVertices[cellLines[j]], 
+                    //         cellVertices[cellLines[j + 1]]});
+                    //     lineRender.startWidth = 0.1f; 
+                    //     lineRender.endWidth = 0.1f; 
+                    // }
+                   
                 }
             }
         }
