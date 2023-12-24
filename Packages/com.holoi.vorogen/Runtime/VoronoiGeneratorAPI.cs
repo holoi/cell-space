@@ -2,15 +2,10 @@
 // SPDX-FileContributor: Botao Amber Hu <botao@holoi.com>
 // SPDX-License-Identifier: MIT
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
 using System.Runtime.InteropServices;
-using Unity.Collections;
-using System.Text;
-using System.Runtime.CompilerServices;
 
 namespace VoroGen
 {
@@ -22,6 +17,58 @@ namespace VoroGen
 
     public class VoronoiGeneratorAPI
     {
+        public static (Vector3[], int[]) ComputeDelaunay(WeightedPoint[] weightedPoints) {
+            int n = weightedPoints.Length;
+            IntPtr edgesPtr;
+            IntPtr numEdgesPtr;
+
+            if (n == 0) {
+                return (new Vector3[0], new int[0]);
+            }
+
+            const float SafeMargin = 1.0f;
+            
+            VoroGen_ComputeDelaunay(
+                weightedPoints,
+                n,
+                weightedPoints.Min(p => p.x) - SafeMargin, weightedPoints.Max(p => p.x) + SafeMargin,
+                weightedPoints.Min(p => p.y) - SafeMargin, weightedPoints.Max(p => p.y) + SafeMargin,
+                weightedPoints.Min(p => p.z) - SafeMargin, weightedPoints.Max(p => p.z) + SafeMargin,
+                out edgesPtr, out numEdgesPtr
+            );
+            
+            int[] numEdges = new int[n];
+
+            Marshal.Copy(numEdgesPtr, numEdges, 0, n);
+            int totalEdgesOut = 0;
+            for (int i = 0; i < weightedPoints.Length; i++) {
+                totalEdgesOut += numEdges[i];
+            }
+            
+            int[] edges = new int[totalEdgesOut];
+            Marshal.Copy(edgesPtr, edges, 0, totalEdgesOut);
+
+            VoroGen_FreeMemory(edgesPtr);
+            VoroGen_FreeMemory(numEdgesPtr);
+
+            Vector3[] vertices = new Vector3[n];
+            int[] indices = new int[totalEdgesOut * 2];
+    
+            int totalIndicesOut = 0;
+            totalEdgesOut = 0;
+            for (int i = 0; i < weightedPoints.Length; i++) {
+                int[] cellEdges = new int[numEdges[i] * 2];
+                for (int j = 0; j < numEdges[i]; j++) {
+                    indices[totalIndicesOut++] = i;
+                    indices[totalIndicesOut++] = edges[totalEdgesOut + j];
+                }
+                vertices[i] = new Vector3(weightedPoints[i].x, weightedPoints[i].y, weightedPoints[i].z);
+                totalEdgesOut += numEdges[i];
+            }
+
+            return (vertices, indices);
+        }
+
         // This is the function you need to call to generate the voronoi diagram. 
         // array of weighted points, bounds of the voronoi diagram, and offset are the inputs
         // the output is an array of meshes, each mesh is a cell of the voronoi diagram
@@ -34,6 +81,10 @@ namespace VoroGen
             IntPtr numVerticesPtr, numTrianglesPtr, numLinesPtr;
 
             (Vector3[], int[], int[])[] meshes = new (Vector3[], int[], int[])[n];
+
+            if (n == 0) {
+                return meshes;
+            }
 
             VoroGen_ComputeVoronoi(
                 weightedPoints,
@@ -120,6 +171,15 @@ namespace VoroGen
         private static extern void VoroGen_FreeMemory(
             IntPtr ptr
         );
+
+        [DllImport(DllName)]
+        private static extern void VoroGen_ComputeDelaunay(
+            WeightedPoint[] weightedPoints,
+            int numPoints,
+            float minX, float maxX,
+            float minY, float maxY,
+            float minZ, float maxZ,
+            out IntPtr edges, out IntPtr numEdges);
 
         [DllImport(DllName)]
         private static extern void VoroGen_ComputeVoronoi(

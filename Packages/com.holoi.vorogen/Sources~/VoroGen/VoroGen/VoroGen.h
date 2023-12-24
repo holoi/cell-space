@@ -10,6 +10,12 @@ extern "C" {
 
     void VoroGen_FreeMemory(void** ptr);
 
+    void VoroGen_ComputeDelaunay(float* weighted_points, int numPoints,
+                        float minX, float maxX,
+                        float minY, float maxY,
+                        float minZ, float maxZ,
+                         int** edgesOut, int** numEdgesOut);
+
     void VoroGen_ComputeVoronoi(float* weighted_points, int numPoints,
                             float minX, float maxX,
                             float minY, float maxY,
@@ -18,6 +24,7 @@ extern "C" {
                             float** verticesOut, int** numVerticesOut,
                             int** trianglesOut, int** numTrianglesOut,
                             int** linesOut, int** numLinesOut);
-    
+   
+
 }
 #endif /* VoroGen_h */

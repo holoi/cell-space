@@ -63,6 +63,24 @@ void test() {
     //     9.0225, 15.0061, 1.1218, 1, 
     //     13.5859, 14.6321, 1.6586, 1
     // };
+    int* edgesOut;
+    int* numEdgesOut;
+
+    VoroGen_ComputeDelaunay(weighted_points, numPoints,
+                        0, 50, 0, 50, 0, 50,
+                        &edgesOut, &numEdgesOut);
+    
+    std::cout << "Delaunay" << std::endl;
+    int totalEdges = 0;
+    for (int i = 0; i < numPoints; i++) {
+       for (int j = 0; j < numEdgesOut[i]; j++) {
+           std::cout << edgesOut[totalEdges + j] << " ";
+       }
+       totalEdges += numEdgesOut[i];
+       std::cout << std::endl;
+    }
+    VoroGen_FreeMemory((void**) edgesOut);
+    VoroGen_FreeMemory((void**) numEdgesOut);
 
     float* verticesOut;
     int* numVerticesOut;
@@ -106,7 +124,6 @@ void test() {
     VoroGen_FreeMemory((void**) numTrianglesOut);
     VoroGen_FreeMemory((void**) linesOut);
     VoroGen_FreeMemory((void**) numLinesOut);
-
 }
 
 

@@ -35,6 +35,7 @@ $CC $MAC_ARGS -fPIC -rdynamic -shared -o libVoroGen_x86_64.dylib VoroGen.o voro+
 lipo -create -output VoroGen.bundle libVoroGen_arm64.dylib libVoroGen_x86_64.dylib
 
 DST="../../Runtime/Plugins/macOS"
+mkdir -p $DST
 rm -rf $DST/VoroGen.bundle
 cp -r VoroGen.bundle $DST
 
@@ -49,6 +50,24 @@ $CC $CFLAGS $INCLUDES $IOS_ARGS -c ${SOURCES}/voro++.cc -o voro++.o
 $AR -crv libVoroGen.a VoroGen.o voro++.o 
 
 DST="../../Runtime/Plugins/iOS"
+mkdir -p $DST
+rm -rf $DST/libVoroGen.a
 cp libVoroGen.a $DST
 
-rm -rf *.o *.so *.a *.bundle *.dylib 
+## Windows
+# x86_64
+CC=x86_64-w64-mingw32-gcc
+
+MAC_ARGS=""
+
+$CC $CFLAGS $INCLUDES $MAC_ARGS -c ${MAIN_SOURCE} -o VoroGen.o 
+$CC $CFLAGS $INCLUDES $MAC_ARGS -c ${SOURCES}/voro++.cc -o voro++.o 
+
+$CC $MAC_ARGS -fPIC -shared -o VoroGen.dll VoroGen.o voro++.o -lstdc++ 
+
+DST="../../Runtime/Plugins/Win64"
+mkdir -p $DST
+rm -rf $DST/VoroGen.dll
+cp -r VoroGen.dll $DST
+
+rm -rf *.o *.so *.a *.bundle *.dylib *.dll

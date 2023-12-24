@@ -1861,7 +1861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellMaterial: {fileID: 2100000, guid: 52d84dbd5153f4bd492dc572ef984ae2, type: 2}
   pointMaterial: {fileID: 2100000, guid: cf6b9e7624f01470499a6b9e0813e87b, type: 2}
-  wireframeMaterial: {fileID: 2100000, guid: e081de13d8d454a6e9ed613adecaa6d3, type: 2}
+  wireframeMaterial: {fileID: 2100000, guid: 25199b8c1e0f541d08d8d168d7ac1bc7, type: 2}
   bounds:
     m_Center: {x: 3, y: 0.5, z: 5}
     m_Extent: {x: 3, y: 2, z: 3}
@@ -1875,6 +1875,7 @@ MonoBehaviour:
   - {fileID: 1753504868}
   - {fileID: 587511995}
   - {fileID: 946488622}
+  tubeWidth: 0.01
 --- !u!4 &1327201943
 Transform:
   m_ObjectHideFlags: 0

@@ -28,6 +28,9 @@ namespace CellSpace
         Material[] wireframeMaterials;
         Material[] cellMaterials;
 
+        [Range(0.01f, 0.2f)]
+        public float tubeWidth;
+
 
         // Start is called before the first frame update
         void Start()
@@ -74,7 +77,7 @@ namespace CellSpace
                 bounds.center.z + transform.position.z), bounds.size);
 
             var meshes = VoronoiGeneratorAPI.GenerateVoronoi(weightedPoints, offsetBounds, offset);
-            
+
             for (int i = 0; i < meshes.Length; i++) {
                 var (cellVertices, cellTriangles, cellLines) = meshes[i];
                 {
@@ -113,9 +116,9 @@ namespace CellSpace
                     var tube = cell.GetComponent<TubeRenderer>();
                     tube.SetPositions(cellVertices);
                     tube.SetIndices(cellLines);
-                    tube.tubularSegments = 16;
+                    tube.tubularSegments = 2;
                     tube.radialSegments = 10;
-                    tube.radius = 0.01f;
+                    tube.radius = tubeWidth;
 
                     // cell.GetComponentsInChildren( typeof(Transform ) )
                     //     .Where( t => t != cell.transform )
