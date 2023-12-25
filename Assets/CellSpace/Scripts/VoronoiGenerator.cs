@@ -16,6 +16,11 @@ namespace CellSpace
         private GameObject[] cells;
         private GameObject[] points;
         private GameObject[] wireframes;
+        public Color cellColor;
+        public Color wireframeColor;
+        public Color nonPlayerCellColor;
+        public Color nonPlayerWireframeColor;
+
         public Material cellMaterial;
         public Material pointMaterial;
         public Material wireframeMaterial;
@@ -24,12 +29,15 @@ namespace CellSpace
         [Range(0.0f, 0.1f)]
         public float offset;
         public GameObject[] sites;
-        Color[] colors = null;
+        Color[] colors;
         Material[] wireframeMaterials;
         Material[] cellMaterials;
 
+
         [Range(0.01f, 0.2f)]
-        public float tubeWidth;
+        public float playerTubeWidth;
+        [Range(0.01f, 0.2f)]
+        public float nonPlayerTubeWidth;
 
 
         // Start is called before the first frame update
@@ -62,8 +70,9 @@ namespace CellSpace
                     wireframeMaterials[i] = new Material(wireframeMaterial);
                     cellMaterials[i] = new Material(cellMaterial);
                     var cellRole = sites[i].GetComponent<CellRole>();
-                    cellMaterials[i].SetColor("_Wire_Color", new Color(colors[i].r, colors[i].g, colors[i].b, cellRole != null && cellRole.isPlayer ? 0.1f : 0.0f));
-                    wireframeMaterials[i].SetColor("_Wire_Color", new Color(colors[i].r * 1.2f, colors[i].g * 1.2f, colors[i].b * 1.2f, 1.3f));
+
+                    cellMaterials[i].SetColor("_Wire_Color", cellRole.isPlayer ? cellColor : nonPlayerCellColor);
+                    wireframeMaterials[i].SetColor("_Wire_Color", cellRole.isPlayer ? wireframeColor: nonPlayerWireframeColor);
                 }
             }
 
@@ -116,28 +125,10 @@ namespace CellSpace
                     var tube = cell.GetComponent<TubeRenderer>();
                     tube.SetPositions(cellVertices);
                     tube.SetIndices(cellLines);
-                    tube.tubularSegments = 2;
-                    tube.radialSegments = 10;
-                    tube.radius = tubeWidth;
-
-                    // cell.GetComponentsInChildren( typeof(Transform ) )
-                    //     .Where( t => t != cell.transform )
-                    //     .ToList()
-                    //     .ForEach( t => Destroy( t.gameObject ) );
-                    
-                    // for (int j = 0; j < cellLines.Length; j += 2) {
-                    //     var cellLine = new GameObject();
-                    //     cellLine.transform.parent = cell.transform;
-
-                    //     var lineRender = cellLine.AddComponent<LineRenderer>();
-                    //     lineRender.material = wireframeMaterials[i];
-                    //     lineRender.SetPositions(new Vector3[] { 
-                    //         cellVertices[cellLines[j]], 
-                    //         cellVertices[cellLines[j + 1]]});
-                    //     lineRender.startWidth = 0.1f; 
-                    //     lineRender.endWidth = 0.1f; 
-                    // }
-                   
+                    tube.tubularSegments = 1;
+                    tube.radialSegments = 8;
+                    var cellRole = sites[i].GetComponent<CellRole>();
+                    tube.radius = cellRole.isPlayer ? playerTubeWidth : nonPlayerTubeWidth;
                 }
             }
         }
