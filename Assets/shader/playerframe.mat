@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 2
-  m_Shader: {fileID: 4800000, guid: cb22c538b44039140a117f1d70552d4c, type: 3}
+  m_Name: playerframe
+  m_Shader: {fileID: 4800000, guid: 17b2336eba9ca724583e3cfd8737648a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -26,10 +26,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
-    - _Float0: 0
+    - _Float0: 0.33
+    - _TessEdgeLength: 16
+    - _TessMax: 25
+    - _TessMaxDisp: 25
+    - _TessMin: 10
+    - _TessPhongStrength: 0.5
+    - _TessValue: 16
     m_Colors:
-    - _Color0: {r: 1, g: 1, b: 1, a: 0}
+    - _Color0: {r: 1.0465094, g: 1.6530007, b: 5.1836452, a: 0}
     - _Color1: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Vector1: {r: 0.24, g: 17.19, b: 18.6, a: 0}
   m_BuildTextureStacks: []
