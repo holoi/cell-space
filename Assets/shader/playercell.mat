@@ -27,7 +27,11 @@ Material:
     m_Floats:
     - _AlphaCutoff: 0.5
     - _Float0: 0.1
+    - _Float10: -0.3
+    - _Float11: 0.3
+    - _Float12: 0.2
     - _Float2: 0.91
+    - _Float9: -0.36
     - _TessEdgeLength: 16
     - _TessMax: 25
     - _TessMaxDisp: 25
@@ -35,12 +39,15 @@ Material:
     - _TessPhongStrength: 0.5
     - _TessValue: 16
     - _lightrange: 3.24
-    - _time: 0.55
+    - _lightrange1: 0.2
+    - _time: 0.53
     m_Colors:
+    - _CellColor: {r: 0.9114415, g: 1.0480274, b: 1.2167859, a: 0}
     - _Color0: {r: 0.5886792, g: 0.6180176, b: 1, a: 0}
-    - _Color1: {r: 0.645283, g: 0.73245925, b: 1, a: 0}
+    - _Color1: {r: 2.6202464, g: 3.5515833, b: 4.9245768, a: 0}
     - _Color2: {r: 24.251463, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Vector1: {r: 0.44, g: 4.73, b: 2.43, a: 0}
-    - _rangecolor: {r: 2.791206, g: 7.2468333, b: 12.125731, a: 0}
+    - _PPP: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector1: {r: 0.44, g: 3.83, b: 2.43, a: 0}
+    - _rangecolor: {r: 17.92578, g: 46.540867, b: 77.8743, a: 0}
   m_BuildTextureStacks: []

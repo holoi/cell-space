@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -25,8 +25,11 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _ALPHA: -0.08
     - _AlphaCutoff: 0.5
-    - _Float0: 0.33
+    - _Float0: 3.1
+    - _Float2: -0.79
+    - _GLOW: -0.79
     - _TessEdgeLength: 16
     - _TessMax: 25
     - _TessMaxDisp: 25
@@ -34,7 +37,7 @@ Material:
     - _TessPhongStrength: 0.5
     - _TessValue: 16
     m_Colors:
-    - _Color0: {r: 1.0465094, g: 1.6530007, b: 5.1836452, a: 0}
-    - _Color1: {r: 0, g: 0, b: 0, a: 0}
+    - _Color0: {r: 0, g: 0, b: 0, a: 0}
+    - _Color1: {r: 20.865904, g: 20.3541, b: 20.3541, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
