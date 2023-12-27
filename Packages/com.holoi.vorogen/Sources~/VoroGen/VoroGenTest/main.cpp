@@ -32,7 +32,43 @@
 //    Voronoi_mesh_3 voronoi = compute_voronoi_mesh(points, bbox, 0.1);
 //}
 
-void test() {
+void test_triangulation() {
+    std::uniform_real_distribution<float> real_dist(0, 50.0);
+    std::random_device myRandomDevice;
+    unsigned seed = myRandomDevice();
+    std::default_random_engine random_engine(seed);
+
+    int numPoints = 14;
+    float* weighted_points = new float[numPoints * 4];
+    for (int i = 0; i < numPoints; i++) {
+        weighted_points[i * 4] = real_dist(random_engine);
+        weighted_points[i * 4 + 1] = real_dist(random_engine);
+        weighted_points[i * 4 + 2] = real_dist(random_engine);
+        weighted_points[i * 4 + 3] = 1;
+    }
+
+
+    int* edgesOut;
+    int* numEdgesOut;
+
+    VoroGen_ComputeDelaunay(weighted_points, numPoints,
+                        0, 50, 0, 50, 0, 50,
+                        &edgesOut, &numEdgesOut);
+    
+    std::cout << "Delaunay" << std::endl;
+    int totalEdges = 0;
+    for (int i = 0; i < numPoints; i++) {
+       for (int j = 0; j < numEdgesOut[i]; j++) {
+           std::cout << edgesOut[totalEdges + j] << " ";
+       }
+       totalEdges += numEdgesOut[i];
+       std::cout << std::endl;
+    }
+    VoroGen_FreeMemory((void**) edgesOut);
+    VoroGen_FreeMemory((void**) numEdgesOut);
+}
+
+void test_voronoi() {
     std::uniform_real_distribution<float> real_dist(0, 50.0);
     std::random_device myRandomDevice;
     unsigned seed = myRandomDevice();
@@ -63,24 +99,7 @@ void test() {
     //     9.0225, 15.0061, 1.1218, 1, 
     //     13.5859, 14.6321, 1.6586, 1
     // };
-    int* edgesOut;
-    int* numEdgesOut;
 
-    VoroGen_ComputeDelaunay(weighted_points, numPoints,
-                        0, 50, 0, 50, 0, 50,
-                        &edgesOut, &numEdgesOut);
-    
-    std::cout << "Delaunay" << std::endl;
-    int totalEdges = 0;
-    for (int i = 0; i < numPoints; i++) {
-       for (int j = 0; j < numEdgesOut[i]; j++) {
-           std::cout << edgesOut[totalEdges + j] << " ";
-       }
-       totalEdges += numEdgesOut[i];
-       std::cout << std::endl;
-    }
-    VoroGen_FreeMemory((void**) edgesOut);
-    VoroGen_FreeMemory((void**) numEdgesOut);
 
     float* verticesOut;
     int* numVerticesOut;
@@ -88,34 +107,51 @@ void test() {
     int* numTrianglesOut;
     int* linesOut;
     int* numLinesOut;
+    int* edgesOut;
+    int* numEdgesOut;
 
     VoroGen_ComputeVoronoi(weighted_points, numPoints,
                         0, 50, 0, 50, 0, 50,
                         0.0,
                         &verticesOut, &numVerticesOut,
                         &trianglesOut, &numTrianglesOut,
-                        &linesOut, &numLinesOut);
+                        &linesOut, &numLinesOut,
+                        &edgesOut, &numEdgesOut);
 
     int totalVertices = 0;
     int totalTriangles = 0;
     int totalLines = 0;
+    int totalEdges = 0;
     for (int i = 0; i < numPoints; i++) {
-//        for (int j = 0; j < numVerticesOut[i]; j++) {
-//            std::cout << verticesOut[totalVertices + j] << " ";
-//        }
-//        std::cout << std::endl;
-//        for (int j = 0; j < numTrianglesOut[i]; j++) {
-//            std::cout << trianglesOut[totalTriangles + j] << " ";
-//        }
-//        std::cout << std::endl;
-//        for (int j = 0; j < numLinesOut[i]; j++) {
-//            std::cout << linesOut[totalLines + j] << " ";
-//        }
-//        std::cout << std::endl;
+        std::cout << "vertices" << std::endl;
+
+        for (int j = 0; j < numVerticesOut[i]; j++) {
+            std::cout << verticesOut[totalVertices + j] << " ";
+        }
+        std::cout << std::endl;
+        
+        std::cout << "triangles" << std::endl;
+        for (int j = 0; j < numTrianglesOut[i]; j++) {
+            std::cout << trianglesOut[totalTriangles + j] << " ";
+        }
+        std::cout << std::endl;
+        
+        std::cout << "lines" << std::endl;
+        for (int j = 0; j < numLinesOut[i]; j++) {
+            std::cout << linesOut[totalLines + j] << " ";
+        }
+        std::cout << std::endl;
+
+        std::cout << "edges" << std::endl;
+        for (int j = 0; j < numEdgesOut[i]; j++) {
+            std::cout << edgesOut[totalEdges + j] << " ";
+        }
+        std::cout << std::endl;
 
         totalVertices += numVerticesOut[i];
         totalTriangles += numTrianglesOut[i];
         totalLines += numLinesOut[i];
+        totalEdges += numEdgesOut[i];
     }
     delete [] weighted_points;
     VoroGen_FreeMemory((void**) verticesOut);
@@ -124,6 +160,8 @@ void test() {
     VoroGen_FreeMemory((void**) numTrianglesOut);
     VoroGen_FreeMemory((void**) linesOut);
     VoroGen_FreeMemory((void**) numLinesOut);
+    VoroGen_FreeMemory((void**) edgesOut);
+    VoroGen_FreeMemory((void**) numEdgesOut);
 }
 
 
@@ -131,8 +169,9 @@ void test() {
 int main() {
     auto m_StartTime = std::chrono::system_clock::now();
     
-    for (int i = 0; i < 10000; i++) {
-        test();
+    for (int i = 0; i < 1; i++) {
+      //  test_triangulation();
+        test_voronoi();
     }
     auto m_EndTime = std::chrono::system_clock::now();
 

@@ -27,7 +27,7 @@ Material:
     m_Floats:
     - _AlphaCutoff: 0.5
     - _Float0: -0.34
-    - _Float1: -0.36
+    - _Float1: -0.57
     - _Float2: -0.3
     - _Float3: 0.4
     - _Float4: 0.3
@@ -36,7 +36,7 @@ Material:
     - _lightrange: 0.08
     - _lightrange1: 0.17
     m_Colors:
-    - _Color0: {r: 2.5737886, g: 3.3967342, b: 4.9245777, a: 0}
+    - _Color0: {r: 0.41956583, g: 0.5537182, b: 0.80277944, a: 0}
     - _Color1: {r: 0, g: 0, b: 0, a: 0}
     - _Color2: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -45,3 +45,4 @@ Material:
     - _rangecolor: {r: 0, g: 0, b: 0, a: 0}
     - _rangecolor1: {r: 0.9173235, g: 1.1833415, b: 1.8443029, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

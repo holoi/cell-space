@@ -16,11 +16,11 @@ namespace CellSpace {
         void Update()
         {
             if (target != null) {
-                GetComponent<VoronoiGenerator>().sites 
+                GetComponent<VoronoiGenerator>().Sites 
                     = FindObjectsOfType<PlayerPoseSynchronizer>()?.Select(p => p.gameObject)
                         .Concat(target.transform.Cast<Transform>()?.Select(p => p.gameObject)).ToArray();
             } else {
-                GetComponent<VoronoiGenerator>().sites 
+                GetComponent<VoronoiGenerator>().Sites 
                     = FindObjectsOfType<PlayerPoseSynchronizer>()?.Select(p => p.gameObject).ToArray();
             }        
         }

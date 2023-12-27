@@ -14,7 +14,7 @@ namespace CellSpace {
         // Update is called once per frame
         void Update()
         {
-            GetComponent<VoronoiGenerator>().sites 
+            GetComponent<VoronoiGenerator>().Sites 
                 = FindObjectsOfType<PlayerPoseSynchronizer>()?.Select(p => p.gameObject).ToArray();
         }
     }

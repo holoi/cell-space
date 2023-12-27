@@ -48,6 +48,7 @@ extern "C" {
                     if (nb[i] > pi) {
                         edges[pi].push_back(nb[i]);
                     }
+                    std::cout << "nbt:" << nb.size() << std::endl;
                 }
                 vi++;
             } while (vl.inc());
@@ -82,7 +83,8 @@ extern "C" {
                                 float offset,
                                 float** verticesOut, int** numVerticesOut,
                                 int** trianglesOut, int** numTrianglesOut,
-                                int** linesOut, int** numLinesOut) {
+                                int** linesOut, int** numLinesOut,
+                                int** edgesOut, int** numEdgesOut) {
         
         // Generate Voroinoi Cells
         int n_x = 6, n_y = 6, n_z = 6;
@@ -95,11 +97,13 @@ extern "C" {
         auto vertices = std::vector<std::vector<float>>(numPoints, std::vector<float>());
         auto triangles = std::vector<std::vector<int>>(numPoints, std::vector<int>());
         auto lines = std::vector<std::vector<int>>(numPoints, std::vector<int>());
+        auto edges = std::vector<std::vector<int>>(numPoints, std::vector<int>());
+
         voro::c_loop_all vl(con);
         int vi = 0;
         if (vl.start()) {
             do {
-                voro::voronoicell cell;
+                voro::voronoicell_neighbor cell;
                 if (!con.compute_cell(cell, vl)) {
                     break;
                 }
@@ -108,7 +112,17 @@ extern "C" {
                 vl.pos(x, y, z);
         
                 int pi = vl.pid();
-            
+                
+                // Add Edges
+                std::vector<int> nb;
+                cell.neighbors(nb);
+                
+                for (int i = 0; i < nb.size(); i++) {     
+                    if (nb[i] >= 0) {
+                        edges[pi].push_back(nb[i]);
+                    }
+                }
+                
                 if (cell.p > 0) {
                     double* cellpts_ptr = cell.pts;
                     
@@ -166,25 +180,30 @@ extern "C" {
         int totalVerticesOut = 0;
         int totalTrianglesOut = 0;
         int totalLinesOut = 0;
+        int totalEdgesOut = 0;
         for (int vi = 0; vi < totalCell; vi++) {
             totalVerticesOut += vertices[vi].size();
             totalTrianglesOut += triangles[vi].size();
             totalLinesOut += lines[vi].size();
+            totalEdgesOut += edges[vi].size();
         }
         
         // Allocate memory
         *numVerticesOut = new int[numPoints];
         *numTrianglesOut = new int[numPoints];
         *numLinesOut = new int[numPoints];
+        *numEdgesOut = new int[numPoints];
 
         *verticesOut = new float[totalVerticesOut];
         *trianglesOut = new int[totalTrianglesOut];
         *linesOut = new int[totalLinesOut];
+        *edgesOut = new int[totalEdgesOut];
 
         //Output Mesh
         totalVerticesOut = 0;
         totalTrianglesOut = 0;
         totalLinesOut = 0;
+        totalEdgesOut = 0;
         for (int vi = 0; vi < totalCell; vi++) {
 
             for (auto verticeContent: vertices[vi]) {
@@ -201,6 +220,11 @@ extern "C" {
                 (*linesOut)[totalLinesOut++] = lineIndice;
             }
             (*numLinesOut)[vi] = (int) lines[vi].size();
+
+            for (auto edgeIndice: edges[vi]) {
+                (*edgesOut)[totalEdgesOut++] = edgeIndice;
+            }
+            (*numEdgesOut)[vi] = (int) edges[vi].size();
         }
     }
 

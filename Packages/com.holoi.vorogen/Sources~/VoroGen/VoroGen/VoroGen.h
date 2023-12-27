@@ -14,7 +14,7 @@ extern "C" {
                         float minX, float maxX,
                         float minY, float maxY,
                         float minZ, float maxZ,
-                         int** edgesOut, int** numEdgesOut);
+                        int** edgesOut, int** numEdgesOut);
 
     void VoroGen_ComputeVoronoi(float* weighted_points, int numPoints,
                             float minX, float maxX,
@@ -23,7 +23,8 @@ extern "C" {
                             float offset,
                             float** verticesOut, int** numVerticesOut,
                             int** trianglesOut, int** numTrianglesOut,
-                            int** linesOut, int** numLinesOut);
+                            int** linesOut, int** numLinesOut,
+                            int** edgesOut, int** numEdgesOut);
    
 
 }

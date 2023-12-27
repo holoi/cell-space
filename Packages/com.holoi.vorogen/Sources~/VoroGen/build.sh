@@ -65,7 +65,7 @@ $CC $CFLAGS $INCLUDES $MAC_ARGS -c ${SOURCES}/voro++.cc -o voro++.o
 
 $CC $MAC_ARGS -fPIC -shared -o VoroGen.dll VoroGen.o voro++.o -lstdc++ 
 
-DST="../../Runtime/Plugins/Win64"
+DST="../../Runtime/Plugins/Windows/x86_64"
 mkdir -p $DST
 rm -rf $DST/VoroGen.dll
 cp -r VoroGen.dll $DST
