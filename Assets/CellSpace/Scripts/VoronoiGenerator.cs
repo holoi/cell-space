@@ -211,11 +211,13 @@ namespace CellSpace
                         var indices = cellLines.Where((x, index) => index % 2 == 0)
                            .Zip(cellLines.Where((x, index) => index % 2 == 1),
                            (a, b) => (a, b)).SelectMany((x, j) => new int[] { x.a, cellVertices.Length + j, cellVertices.Length + j, x.b }).ToArray();
-
-
-                        mesh.SetVertices(cellVertices.Concat(middlePoints).ToArray());
+                        var vertices = cellVertices.Concat(middlePoints).ToArray();
+                        var uvs = Enumerable.Repeat(Vector2.zero, cellVertices.Length).Concat(Enumerable.Repeat(Vector2.one, cellLines.Length / 2)).ToArray();
+                        
+                        mesh.Clear();
+                        mesh.SetVertices(vertices);
                         mesh.SetIndices(indices, MeshTopology.Lines, 0);
-                        mesh.SetUVs(0, Enumerable.Repeat(Vector2.zero, cellVertices.Length).Concat(Enumerable.Repeat(Vector2.one, cellLines.Length / 2)).ToArray());
+                        mesh.SetUVs(0, uvs);
                         mesh.RecalculateBounds();
                     }
                     else {
@@ -273,7 +275,6 @@ namespace CellSpace
                 GameObject edge = transform.Find(edgeName)?.gameObject;
                 if (edge == null)
                 {
-                    Debug.Log(totalEdges);
                     break;
                 }
                 // var lineRender = edge.GetComponent<LineRenderer>();

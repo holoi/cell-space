@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using HoloInteractive.XR.HoloKit;
-using Immersal.AR;
+//using Immersal.AR;
 
 /// <summary>
 /// This script is responsible for deactivating canvases when switching to stereo mode.

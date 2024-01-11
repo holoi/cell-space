@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/CellSpace/Scenes/CellSpace_Basic.unity
     guid: 19b6db72d3a9744128946524fe3a2186
   - enabled: 1
-    path: Assets/CellSpace/Scenes/CellSpace_Multiplayer.unity
-    guid: 10637ee2bb1c74d4d9f672ae5c78b233
-  - enabled: 1
-    path: Assets/Samples/Image Tracking Relocalization/0.1.0/External Marker Relocalization/Scenes/ExternalMarkerRelocalization.unity
-    guid: 1668b2458c16d48e78948447505a52bf
-  - enabled: 1
     path: Assets/CellSpace/Scenes/CellSpace_Multiplayer_QR.unity
     guid: 9edc9ffb8a7da4deb9f123133438a778
+  - enabled: 0
+    path: Assets/Samples/Image Tracking Relocalization/0.1.0/External Marker Relocalization/Scenes/ExternalMarkerRelocalization.unity
+    guid: 1668b2458c16d48e78948447505a52bf
+  - enabled: 0
+    path: Assets/CellSpace/Scenes/CellSpace_Multiplayer.unity
+    guid: 10637ee2bb1c74d4d9f672ae5c78b233
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0eb36a35e1ef1cb4fae59380454bdd83, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: c7e362ba310afd24e8fde9976aac5180, type: 2}

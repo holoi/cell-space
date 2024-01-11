@@ -17,11 +17,11 @@ namespace CellSpace {
         {
             if (target != null) {
                 GetComponent<VoronoiGenerator>().Sites 
-                    = FindObjectsOfType<PlayerPoseSynchronizer>()?.Select(p => p.gameObject)
+                    = FindObjectsOfType<HoloKitMarkController>()?.Select(p => p.gameObject)
                         .Concat(target.transform.Cast<Transform>()?.Select(p => p.gameObject)).ToArray();
             } else {
                 GetComponent<VoronoiGenerator>().Sites 
-                    = FindObjectsOfType<PlayerPoseSynchronizer>()?.Select(p => p.gameObject).ToArray();
+                    = FindObjectsOfType<HoloKitMarkController>()?.Select(p => p.gameObject).ToArray();
             }        
         }
     }
