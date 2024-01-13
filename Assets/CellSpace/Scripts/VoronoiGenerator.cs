@@ -23,7 +23,7 @@ namespace CellSpace
         public GameObject[] Wireframes { get => _wireframes; }
         public GameObject[] Edges { get => _edges; }
         public GameObject[] Sites { get => _sites; set => _sites = value; }
-
+        
         #endregion
 
         #region Editable attributes
@@ -32,9 +32,9 @@ namespace CellSpace
         [SerializeField] bool _wireframeDisplayed = false;
         [SerializeField] bool _edgeDisplayed = false;
         [SerializeField] bool _wireframeLineDisplayed = false;
-        
 
-        [SerializeField] Color _cellColor = Color.white;
+        [SerializeField] Gradient _cellColorGradient;
+
         [SerializeField] Color _wireframeColor = Color.white;
         [SerializeField] Color _edgeColor = Color.white;
 
@@ -65,7 +65,6 @@ namespace CellSpace
         #endregion
 
         #region Private objects
-
         GameObject[] _cells;
         GameObject[] _points;
         GameObject[] _wireframes;
@@ -117,16 +116,16 @@ namespace CellSpace
 
                 for (int i = 0; i < n; i++)
                 {
-                    _colors[i] = UnityEngine.Random.ColorHSV(0.05f, 0.3f, 0.85f, 0.95f, 0.85f, 0.95f, 0.8f, 0.9f);
+                    _colors[i] = _cellColorGradient.Evaluate(UnityEngine.Random.Range(0.0f, 1.0f));
                     _wireframeMaterials[i] = new Material(_wireframeMaterial);
                     _cellMaterials[i] = new Material(_cellMaterial);
                     _edgeMaterials[i] = new Material(_edgeMaterial);
 
                     var cellRole = _sites[i].GetComponent<CellRole>();
 
-                    _cellMaterials[i].SetColor("_Color", cellRole.isPlayer ? _cellColor : _cellNonPlayerColor);
+                    _cellMaterials[i].SetColor("_Color", cellRole.isPlayer ? _colors[i] : _cellNonPlayerColor);
                     _wireframeMaterials[i].SetColor("_Color", cellRole.isPlayer ? _colors[i] : _wireframeNonPlayerColor);
-                    _edgeMaterials[i].SetColor("_Color", cellRole.isPlayer ? _edgeColor : _edgeNonPlayerColor);
+                    _edgeMaterials[i].SetColor("_Color", cellRole.isPlayer ? _colors[i] : _edgeNonPlayerColor);
                 }
             }
 
@@ -258,7 +257,7 @@ namespace CellSpace
                             tube.tubularSegments = 1;
                             tube.radialSegments = 8;
                             tube.radius = cellRole.isPlayer && cellRole2.isPlayer ? _edgeTubeWidth : _edgeNonPlayerTubeWidth;
-                            Debug.Log($"{edgeName}: {i} {cellEdges[j]}");
+//                            Debug.Log($"{edgeName}: {i} {cellEdges[j]}");
                             //else
                             //{
                             //    var lineRender = edge.GetComponent<LineRenderer>();

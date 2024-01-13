@@ -5,6 +5,7 @@
 using UnityEngine;
 using System.Linq;
 using VoroGen;
+using HoloInteractive.XR.MultiplayerARBoilerplates;
 
 namespace CellSpace {
 

@@ -61,4 +61,7 @@ Assets/TextMesh Pro*
 Build_BurstDebugInformation_DoNotShip
 
 .DS_Store
+*.mp4
+mono_crash*.json
+
 

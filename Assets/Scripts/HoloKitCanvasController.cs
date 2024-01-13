@@ -1,38 +1,44 @@
+// SPDX-FileCopyrightText: Copyright 2023 Holo Interactive <dev@holoi.com>
+// SPDX-FileContributor: Yuchen Zhang <yuchenz27@outlook.com>
+// SPDX-License-Identifier: MIT
+
 using System.Collections.Generic;
 using UnityEngine;
 using HoloInteractive.XR.HoloKit;
-//using Immersal.AR;
 
 /// <summary>
 /// This script is responsible for deactivating canvases when switching to stereo mode.
 /// </summary>
-public class HoloKitCanvasController : MonoBehaviour
+namespace HoloInteractive.XR.MultiplayerARBoilerplates
 {
-    [SerializeField] List<GameObject> m_Canvases;
-
-    private void Start()
+    public class HoloKitCanvasController : MonoBehaviour
     {
-        FindObjectOfType<HoloKitCameraManager>().OnScreenRenderModeChanged += OnScreenRenderModeChanged;
-    }
+        [SerializeField] List<GameObject> m_Canvases;
 
-    private void OnScreenRenderModeChanged(ScreenRenderMode renderMode)
-    {
-        foreach (var canvas in m_Canvases)
+        private void Start()
         {
-            canvas.SetActive(renderMode != ScreenRenderMode.Stereo);
+            FindObjectOfType<HoloKitCameraManager>().OnScreenRenderModeChanged += OnScreenRenderModeChanged;
         }
 
-        if (renderMode == ScreenRenderMode.Mono)
+        private void OnScreenRenderModeChanged(ScreenRenderMode renderMode)
         {
-            Screen.orientation = ScreenOrientation.Portrait;
-        }
-    }
+            foreach (var canvas in m_Canvases)
+            {
+                canvas.SetActive(renderMode != ScreenRenderMode.Stereo);
+            }
 
-    public void OnChangeScreenOrientation()
-    {
-        if (Screen.orientation == ScreenOrientation.Portrait)
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
-        else
-            Screen.orientation = ScreenOrientation.Portrait;
+            if (renderMode == ScreenRenderMode.Mono)
+            {
+                Screen.orientation = ScreenOrientation.Portrait;
+            }
+        }
+
+        public void OnChangeScreenOrientation()
+        {
+            if (Screen.orientation == ScreenOrientation.Portrait)
+                Screen.orientation = ScreenOrientation.LandscapeLeft;
+            else
+                Screen.orientation = ScreenOrientation.Portrait;
+        }
     }
 }

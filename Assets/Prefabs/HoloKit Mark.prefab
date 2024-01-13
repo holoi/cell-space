@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6341761508325904615}
   - component: {fileID: 3180049937637133184}
   - component: {fileID: 2280931343860109315}
-  - component: {fileID: 4514397870218133796}
   m_Layer: 0
   m_Name: HoloKit Mark
   m_TagString: Untagged
@@ -51,8 +50,6 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101,17 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPoseSynchronizer: {fileID: 0}
-  m_Offset: {x: 0, y: -0.3, z: 0}
---- !u!114 &4514397870218133796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8311295640049032321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ff90efba5d64fd3878befdaf934e44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlayer: 1
+  m_Offset: {x: 0, y: 0.15, z: 0}
