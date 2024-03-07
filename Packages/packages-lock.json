@@ -21,7 +21,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "3cb014adf7bf2e0c790c462ccb5120011b53c4ec"
+      "hash": "56e58f423c13e835401645a00b9b1af483d4be94"
     },
     "com.holoi.netcode.transport.multipeer-connectivity": {
       "version": "1.0.3",
@@ -33,34 +33,6 @@
       },
       "url": "https://registry.npmjs.com"
     },
-    "com.holoi.vorogen": {
-      "version": "file:com.holoi.vorogen",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
-    "com.holoi.xr.holokit": {
-      "version": "https://github.com/holoi/holokit-unity-sdk.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.xr.arfoundation": "5.1.0",
-        "com.unity.xr.arkit": "5.1.0"
-      },
-      "hash": "8446da60d5d95f3f9b448a14d1cd510e43bf4746"
-    },
-    "com.holoi.xr.image-tracking-relocalization": {
-      "version": "https://github.com/holoi/com.holoi.xr.image-tracking-relocalization.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.xr.arfoundation": "5.1.0",
-        "com.unity.xr.arkit": "5.1.0",
-        "com.unity.netcode.gameobjects": "1.7.1",
-        "com.unity.shadergraph": "16.0.4"
-      },
-      "hash": "f1f13d6fa1efb02bd6bbabedbb90f90442bb7977"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -68,11 +40,12 @@
       "dependencies": {}
     },
     "com.unity.burst": {
-      "version": "1.8.11",
+      "version": "1.8.12",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.mathematics": "1.2.1"
+        "com.unity.mathematics": "1.2.1",
+        "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -176,7 +149,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.netcode.gameobjects": {
-      "version": "1.7.1",
+      "version": "1.8.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -244,7 +217,7 @@
       }
     },
     "com.unity.rendering.light-transport": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "depth": 2,
       "source": "builtin",
       "dependencies": {
@@ -371,11 +344,11 @@
       }
     },
     "com.unity.xr.arcore": {
-      "version": "5.1.1",
+      "version": "5.1.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.xr.arfoundation": "5.1.1",
+        "com.unity.xr.arfoundation": "5.1.2",
         "com.unity.xr.core-utils": "2.1.0",
         "com.unity.xr.management": "4.0.1",
         "com.unity.modules.androidjni": "1.0.0",
@@ -384,7 +357,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arfoundation": {
-      "version": "5.1.1",
+      "version": "5.1.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -402,19 +375,19 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arkit": {
-      "version": "5.1.1",
+      "version": "5.1.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.editorcoroutines": "1.0.0",
-        "com.unity.xr.arfoundation": "5.1.1",
+        "com.unity.xr.arfoundation": "5.1.2",
         "com.unity.xr.core-utils": "2.1.0",
         "com.unity.xr.management": "4.0.1"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.core-utils": {
-      "version": "2.2.3",
+      "version": "2.3.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -445,7 +418,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.openxr": {
-      "version": "1.9.1",
+      "version": "1.10.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -455,6 +428,28 @@
         "com.unity.xr.core-utils": "2.1.1"
       },
       "url": "https://packages.unity.com"
+    },
+    "io.holokit.image-tracking-relocalization": {
+      "version": "https://github.com/holokit/holokit-image-tracking-relocalization.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.xr.arfoundation": "5.1.2",
+        "com.unity.xr.arkit": "5.1.2",
+        "com.unity.netcode.gameobjects": "1.8.1",
+        "com.unity.shadergraph": "14.0.10"
+      },
+      "hash": "b674b563eab9d3bad6d2f3dc053cd2e9bf73133b"
+    },
+    "io.holokit.unity-sdk": {
+      "version": "https://github.com/holokit/holokit-unity-sdk.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.xr.arfoundation": "5.1.2",
+        "com.unity.xr.arkit": "5.1.2"
+      },
+      "hash": "c6348437926339d9e098e056c319dedd850b6511"
     },
     "jp.keijiro.beta": {
       "version": "1.0.2",
@@ -501,6 +496,12 @@
       "source": "registry",
       "dependencies": {},
       "url": "https://registry.npmjs.com"
+    },
+    "org.realitydeslab.vorogen": {
+      "version": "file:org.realitydeslab.vorogen",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

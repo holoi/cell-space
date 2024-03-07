@@ -1,4 +1,4 @@
-namespace HoloInteractive.MoveNet {
+namespace RealityDesignLab.MoveNet {
 
     using System.Collections.Generic;
     using UnityEngine;

@@ -1,4 +1,4 @@
-namespace HoloInteractive.MoveNet {
+namespace RealityDesignLab.MoveNet {
 
     using System.Collections.Generic;
     using UnityEngine;
@@ -63,7 +63,6 @@ namespace HoloInteractive.MoveNet {
 
 
         #region --Operations--
-        private readonly List<Image> currentRects = new List<Image>();
         private readonly List<RectTransform> currentKeypoints = new List<RectTransform>();
         readonly List<List<Transform>> currentSkeletons = new List<List<Transform>>();
         #endregion

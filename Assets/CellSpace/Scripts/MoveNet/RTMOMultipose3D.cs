@@ -4,7 +4,7 @@ using Bibcam.Decoder;
 using System.Collections.Generic;
 using UnityEngine.Assertions;
 
-namespace HoloInteractive.MoveNet
+namespace RealityDesignLab.MoveNet
 {
     public sealed class RTMOMultipose3D : MonoBehaviour {
         [SerializeField] private BibcamMetadataDecoder _decoder = null;

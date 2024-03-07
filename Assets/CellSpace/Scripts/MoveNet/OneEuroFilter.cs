@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using UnityEngine;
 
-namespace HoloInteractive.MoveNet
+namespace RealityDesignLab.MoveNet
 {
     /// <summary>
     /// Implementation of the 1€ filter.
